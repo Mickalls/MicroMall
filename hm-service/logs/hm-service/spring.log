@@ -1,0 +1,33 @@
+14:28:16:654  INFO 99398 --- [main] com.hmall.service.impl.TestMysqlConn     : Starting TestMysqlConn using Java 19.0.2 on yHmbp.local with PID 99398 (started by wangyouhua in /Users/wangyouhua/Documents/codes/Java/hmall/hm-service)
+14:28:16:656 DEBUG 99398 --- [main] com.hmall.service.impl.TestMysqlConn     : Running with Spring Boot v2.7.12, Spring v5.3.27
+14:28:16:656  INFO 99398 --- [main] com.hmall.service.impl.TestMysqlConn     : The following 1 profile is active: "dev"
+14:28:16:958  INFO 99398 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:28:16:959  INFO 99398 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+14:28:16:970  INFO 99398 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+14:28:18:000  INFO 99398 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+14:28:18:158  INFO 99398 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+14:28:18:159  INFO 99398 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+14:28:18:169  INFO 99398 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+14:28:18:244  INFO 99398 --- [main] com.hmall.service.impl.TestMysqlConn     : Started TestMysqlConn in 1.702 seconds (JVM running for 2.074)
+14:28:44:686  INFO 99463 --- [main] com.hmall.service.impl.TestMysqlConn     : Starting TestMysqlConn using Java 19.0.2 on yHmbp.local with PID 99463 (started by wangyouhua in /Users/wangyouhua/Documents/codes/Java/hmall/hm-service)
+14:28:44:686 DEBUG 99463 --- [main] com.hmall.service.impl.TestMysqlConn     : Running with Spring Boot v2.7.12, Spring v5.3.27
+14:28:44:686  INFO 99463 --- [main] com.hmall.service.impl.TestMysqlConn     : The following 1 profile is active: "local"
+14:28:44:984  INFO 99463 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:28:44:985  INFO 99463 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+14:28:44:995  INFO 99463 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+14:28:46:028  INFO 99463 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+14:28:46:174  INFO 99463 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+14:28:46:175  INFO 99463 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+14:28:46:185  INFO 99463 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+14:28:46:258  INFO 99463 --- [main] com.hmall.service.impl.TestMysqlConn     : Started TestMysqlConn in 1.686 seconds (JVM running for 2.074)
+14:28:57:189  INFO 99499 --- [main] com.hmall.service.impl.TestMysqlConn     : Starting TestMysqlConn using Java 19.0.2 on yHmbp.local with PID 99499 (started by wangyouhua in /Users/wangyouhua/Documents/codes/Java/hmall/hm-service)
+14:28:57:189 DEBUG 99499 --- [main] com.hmall.service.impl.TestMysqlConn     : Running with Spring Boot v2.7.12, Spring v5.3.27
+14:28:57:189  INFO 99499 --- [main] com.hmall.service.impl.TestMysqlConn     : The following 1 profile is active: "local"
+14:28:57:492  INFO 99499 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:28:57:493  INFO 99499 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+14:28:57:504  INFO 99499 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+14:28:58:522  INFO 99499 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+14:28:58:691  INFO 99499 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+14:28:58:692  INFO 99499 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+14:28:58:703  INFO 99499 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+14:28:58:781  INFO 99499 --- [main] com.hmall.service.impl.TestMysqlConn     : Started TestMysqlConn in 1.711 seconds (JVM running for 2.09)
