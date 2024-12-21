@@ -20,6 +20,8 @@ public class UserInfoInterceptor implements HandlerInterceptor {
         // 1. 获取登陆用户信息
         String userId = request.getHeader(Constants.USER_INFO_KEY);
 
+        System.out.println("获取到用户信息:" + userId);
+
         if (!StrUtil.isNotBlank(userId)) {
             return true;
         }

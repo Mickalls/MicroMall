@@ -32,7 +32,6 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        System.out.println("网关过滤器!!!!!!!!!!!");
         // 1. 通过request获取用户信息
         ServerHttpRequest request = exchange.getRequest();
 
@@ -48,11 +47,14 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
         // 3. 获取token
         String token = null;
-        List<String> headers = request.getHeaders().get("authorization");
+        System.out.println("接收到请求" + request.getHeaders());
+        List<String> headers = request.getHeaders().get("Authorization");
 
         if (headers != null && !headers.isEmpty()) {
             token = headers.get(0);
         }
+
+        System.out.println("获取到用户的jwtToken:" + token);
 
         // 4. 校验并解析token (校验失败会抛出异常)
         Long userId = null;
@@ -66,6 +68,8 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             // 直接拦截,不继续执行过滤器链
             return response.setComplete();
         }
+
+        System.out.println("解析出用户id:" + userId);
 
         // 5. 保存用户信息到header里
         String userInfo = userId.toString();

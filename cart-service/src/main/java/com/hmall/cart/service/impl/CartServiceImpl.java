@@ -46,6 +46,8 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
         // 1.获取登录用户
         Long userId = UserContext.getUser();
 
+        System.out.println("获取到登陆用户:" + userId);
+
         // 2.判断是否已经存在
         if(checkItemExists(cartFormDTO.getItemId(), userId)){
             // 2.1.存在，则更新数量
@@ -77,6 +79,8 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
 
         // 3.处理VO中的商品信息
         handleCartItems(vos);
+
+        System.out.println("查询到购物车列表:" + vos);
 
         // 4.返回
         return vos;

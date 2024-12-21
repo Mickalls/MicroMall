@@ -12,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        String name = Thread.currentThread().getName();
+        System.out.println("[线程]" + name + "注册UserInfoInterceptor拦截器");
         registry.addInterceptor(new UserInfoInterceptor());
     }
 }
