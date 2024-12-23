@@ -36,6 +36,28 @@ public class JwtTool {
     }
 
     /**
+     * 在将jwtToken作为key访问redis前简单判断一下jwt token合法性
+     */
+    public void validateTokenBeforeRedis(String token) {
+        // 1.校验token是否为空
+        if (token == null) {
+            throw new UnauthorizedException("未登录");
+        }
+        // 2.校验并解析jwt
+        JWT jwt;
+        try {
+            jwt = JWT.of(token).setSigner(jwtSigner);
+        } catch (Exception e) {
+            throw new UnauthorizedException("无效的token", e);
+        }
+        // 2.校验jwt是否有效
+        if (!jwt.verify()) {
+            // 验证失败
+            throw new UnauthorizedException("无效的token");
+        }
+    }
+
+    /**
      * 解析token
      *
      * @param token token
@@ -78,5 +100,9 @@ public class JwtTool {
             // 数据格式有误
             throw new UnauthorizedException("无效的token");
         }
+    }
+
+    public String getRedisKey(String token) {
+        return "login:token:" + token;
     }
 }

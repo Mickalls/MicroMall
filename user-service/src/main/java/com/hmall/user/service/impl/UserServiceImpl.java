@@ -15,9 +15,12 @@ import com.hmall.user.service.IUserService;
 import com.hmall.user.utils.JwtTool;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -37,8 +40,37 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     private final JwtProperties jwtProperties;
 
+    private final StringRedisTemplate redisTemplate;
+
     @Override
     public UserLoginVO login(LoginFormDTO loginDTO) {
+        String username = loginDTO.getUsername();
+        String password = loginDTO.getPassword();
+        User user = lambdaQuery().eq(User::getUsername, username).one();
+        Assert.notNull(user, "用户名错误");
+        if (user.getStatus() == UserStatus.FROZEN) {
+            throw new ForbiddenException("用户被冻结");
+        }
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new BadRequestException("用户名或密码错误");
+        }
+        String token = jwtTool.createToken(user.getId(), jwtProperties.getTokenTTL());
+        String redisKey = jwtTool.getRedisKey(token);
+
+        // 存入redis：jwt token、用户个人信息、设置过期时间
+        redisTemplate.opsForValue().set(redisKey, user.getId().toString(), jwtProperties.getTokenTTL().toMillis(), TimeUnit.MILLISECONDS);
+
+        // 封装为VO返回
+        UserLoginVO vo = new UserLoginVO();
+        vo.setUserId(user.getId());
+        vo.setUsername(user.getUsername());
+        vo.setBalance(user.getBalance());
+        vo.setToken(token);
+        return vo;
+    }
+
+//    @Override
+    public UserLoginVO login_jwt(LoginFormDTO loginDTO) {
         // 1.数据校验
         String username = loginDTO.getUsername();
         String password = loginDTO.getPassword();
